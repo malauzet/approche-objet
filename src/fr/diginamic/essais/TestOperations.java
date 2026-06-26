@@ -13,13 +13,13 @@ public class TestOperations {
         char operateurM = '*';
         char operateurD = '/';
         // Pour tester les opérateurs invalide.
-        char operateurInvalide = 'a';
+        // char operateurInvalide = 'a';
 
-        System.out.println(calcul(a, b, operateurA));
-        System.out.println(calcul(a, b, operateurS));
-        System.out.println(calcul(a, b, operateurM));
-        System.out.println(calcul(a, b, operateurD));
+        System.out.println("Addition        : " + a + " + " + b + " = " + calcul(a, b, operateurA));
+        System.out.println("Soustraction    : " + a + " - " + b + " = " + calcul(a, b, operateurS));
+        System.out.println("Multiplication  : " + a + " × " + b + " = " + calcul(a, b, operateurM));
+        System.out.println("Division        : " + a + " ÷ " + b + " = " + calcul(a, b, operateurD));
         // 5ème test pour les entrées invalide.
-        System.out.println(calcul(a, b, operateurInvalide));
+        // System.out.println(calcul(a, b, operateurInvalide));
     }
 }
