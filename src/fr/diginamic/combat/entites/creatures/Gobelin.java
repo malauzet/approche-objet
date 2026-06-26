@@ -1,4 +1,7 @@
-package fr.diginamic.combat;
+package fr.diginamic.combat.entites.creatures;
+
+import fr.diginamic.combat.utils.Utils;
+import fr.diginamic.combat.entites.Creature;
 
 public class Gobelin extends Creature {
 

@@ -1,4 +1,10 @@
-package fr.diginamic.combat;
+package fr.diginamic.combat.entites;
+
+import fr.diginamic.combat.potions.Potion;
+import fr.diginamic.combat.potions.PotionAttaqueMajeure;
+import fr.diginamic.combat.potions.PotionAttaqueMineure;
+import fr.diginamic.combat.potions.PotionSoin;
+import fr.diginamic.combat.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;

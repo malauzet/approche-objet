@@ -1,4 +1,6 @@
-package fr.diginamic.combat;
+package fr.diginamic.combat.potions;
+
+import fr.diginamic.combat.entites.Personnage;
 
 public class PotionAttaqueMajeure extends Potion {
 

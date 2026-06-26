@@ -1,4 +1,7 @@
-package fr.diginamic.combat;
+package fr.diginamic.combat.utils;
+
+import fr.diginamic.combat.combats.GestionCombat;
+import fr.diginamic.combat.entites.Personnage;
 
 public class Menu {
 

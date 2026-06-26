@@ -1,4 +1,4 @@
-package fr.diginamic.combat;
+package fr.diginamic.combat.entites;
 
 public abstract class Creature extends Entites {
 

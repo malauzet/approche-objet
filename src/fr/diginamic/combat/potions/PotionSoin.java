@@ -1,4 +1,7 @@
-package fr.diginamic.combat;
+package fr.diginamic.combat.potions;
+
+import fr.diginamic.combat.utils.Utils;
+import fr.diginamic.combat.entites.Personnage;
 
 public class PotionSoin extends Potion {
 

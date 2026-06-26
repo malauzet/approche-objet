@@ -1,4 +1,6 @@
-package fr.diginamic.combat;
+package fr.diginamic.combat.entites;
+
+import fr.diginamic.combat.utils.Utils;
 
 /**
  * Classe abstraite représentant toute entité pouvant participer à un combat.

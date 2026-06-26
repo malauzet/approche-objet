@@ -1,4 +1,12 @@
-package fr.diginamic.combat;
+package fr.diginamic.combat.combats;
+
+import fr.diginamic.combat.entites.Creature;
+import fr.diginamic.combat.entites.Personnage;
+import fr.diginamic.combat.entites.creatures.Gobelin;
+import fr.diginamic.combat.entites.creatures.Loup;
+import fr.diginamic.combat.entites.creatures.Troll;
+import fr.diginamic.combat.utils.Console;
+import fr.diginamic.combat.utils.Utils;
 
 public class GestionCombat {
 

@@ -1,4 +1,4 @@
-package fr.diginamic.combat;
+package fr.diginamic.combat.utils;
 
 import java.util.Scanner;
 

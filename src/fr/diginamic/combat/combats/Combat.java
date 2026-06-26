@@ -1,4 +1,11 @@
-package fr.diginamic.combat;
+package fr.diginamic.combat.combats;
+
+import fr.diginamic.combat.entites.Creature;
+import fr.diginamic.combat.entites.Personnage;
+import fr.diginamic.combat.potions.PotionAttaqueMajeure;
+import fr.diginamic.combat.potions.PotionAttaqueMineure;
+import fr.diginamic.combat.potions.PotionSoin;
+import fr.diginamic.combat.utils.Utils;
 
 public class Combat {
 
