@@ -2,8 +2,8 @@ package fr.diginamic.maison;
 
 public abstract class Piece {
 
-    private double superficie;
-    private int etage;
+    private final double superficie;
+    private final int etage;
 
     public Piece(double superficie, int etage) {
 
