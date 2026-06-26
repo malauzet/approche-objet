@@ -14,10 +14,6 @@ public abstract class Potion {
         return nom;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public abstract String appliquer(Personnage personnage);
 
     @Override
