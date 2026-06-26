@@ -8,16 +8,17 @@ public class ManipulationChaine {
     static void main() {
 
         String chaine = "Durand;Marcel;2 523.5";
+        System.out.println("===== " + chaine + " =====");
 
         // 1)
         char premierCaractere = chaine.charAt(0);
         System.out.println("Premier caractère: " + premierCaractere);
 
-        // 2)
+        // 1bis)
         int chaineLongueur = chaine.length();
         System.out.println("Longueur de la chaine : " + chaineLongueur);
 
-        // 3)
+        // 2)
         int premierPointVirgule = chaine.indexOf(';');
         System.out.println("Première apparition de ';' : " + premierPointVirgule);
 
@@ -43,8 +44,8 @@ public class ManipulationChaine {
 
         Salarie salarie = new Salarie(nomSalarie, prenomSalarie, salaire);
 
-        System.out.println("Nom : " + salarie.getNom());
-        System.out.println("Prénom : " + salarie.getPrenom());
-        System.out.println("Salaire : " + salarie.getSalaire());
+        System.out.println("Nom : " + salarie.nom());
+        System.out.println("Prénom : " + salarie.prenom());
+        System.out.println("Salaire : " + salarie.salaire());
     }
 }

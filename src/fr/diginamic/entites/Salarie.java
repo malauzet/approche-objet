@@ -1,10 +1,14 @@
 package fr.diginamic.entites;
 
+public record Salarie(String nom, String prenom, double salaire) {}
+
+// OU alors :
+/*
 public class Salarie {
 
-    private String nom;
-    private String prenom;
-    private double salaire;
+    private final String nom;
+    private final String prenom;
+    private final double salaire;
 
     public Salarie(String nom, String prenom, double salaire) {
         this.nom = nom;
@@ -16,23 +20,13 @@ public class Salarie {
         return nom;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
     public String getPrenom() {
         return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
     }
 
     public double getSalaire() {
         return salaire;
     }
 
-    public void setSalaire(double salaire) {
-        this.salaire = salaire;
-    }
 }
+*/
