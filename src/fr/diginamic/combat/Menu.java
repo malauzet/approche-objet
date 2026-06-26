@@ -5,6 +5,7 @@ public class Menu {
     private Personnage personnage = null;
 
     public void demarrer() {
+
         int choix = -1;
 
         while (choix != 5) {
@@ -12,9 +13,15 @@ public class Menu {
             choix = Console.lireChoix();
 
             switch (choix) {
-                case 1 -> personnage = creerPersonnage();
+                case 1 -> personnage = Personnage.creer();
                 case 2 -> GestionCombat.combattre(personnage);
-                case 3 -> afficherScore();
+                case 3 -> {
+                    if (personnage == null) {
+                        System.out.println("Aucun personnage n'existe encore.");
+                    } else {
+                        personnage.afficherScore();
+                    }
+                }
                 case 4 -> GestionCombat.prendrePotion(personnage);
                 case 5 -> System.out.println("Au revoir !");
                 default -> System.out.println("Option invalide, veuillez réessayer.");
@@ -22,25 +29,6 @@ public class Menu {
         }
 
         Console.fermer();
-    }
-
-    private Personnage creerPersonnage() {
-        Personnage p = new Personnage();
-        System.out.println("Personnage créé avec succès !");
-        System.out.println("Force         : " + p.getForce());
-        System.out.println("Points de vie : " + p.getPointsDeVie());
-        System.out.println("Score         : " + p.getScore());
-        p.afficherInventaire();
-        return p;
-    }
-
-    private void afficherScore() {
-        if (personnage == null) {
-            System.out.println("Aucun personnage n'existe encore.");
-            return;
-        }
-        System.out.println("Score actuel : " + personnage.getScore() + " points.");
-        System.out.println("PV restants  : " + personnage.getPointsDeVie());
     }
 
     private static void afficherMenu() {

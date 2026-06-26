@@ -24,9 +24,24 @@ public class Personnage extends Entites {
         inventaire.add(new PotionAttaqueMajeure());
     }
 
+    public static Personnage creer() {
+        Personnage p = new Personnage();
+        System.out.println("Personnage créé avec succès !");
+        System.out.println("Force         : " + p.getForce());
+        System.out.println("Points de vie : " + p.getPointsDeVie());
+        System.out.println("Score         : " + p.getScore());
+        p.afficherInventaire();
+        return p;
+    }
+
     // Score ----------------------------------------------------------------------------------------
     public void ajouterScore(int points) {
         this.score += points;
+    }
+
+    public void afficherScore() {
+        System.out.println("Score actuel : " + score + " points.");
+        System.out.println("PV restants  : " + getPointsDeVie());
     }
 
     public int getScore() {
@@ -78,6 +93,10 @@ public class Personnage extends Entites {
         }
     }
 
+    public boolean aDesPotion() {
+        return !inventaire.isEmpty();
+    }
+
     public boolean utiliserPotion(int index) {
 
         if (index < 0 || index >= inventaire.size()) {
@@ -89,10 +108,6 @@ public class Personnage extends Entites {
         System.out.println(resultat);
 
         return true;
-    }
-
-    public boolean aDesPotion() {
-        return !inventaire.isEmpty();
     }
 
     public void afficherInventaire() {
