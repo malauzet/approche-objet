@@ -2,8 +2,8 @@ package fr.diginamic.salaire;
 
 public abstract class Intervenant {
 
-    private String nom;
-    private String prenom;
+    private final String nom;
+    private final String prenom;
 
     public Intervenant(String nom, String prenom) {
         this.nom = nom;

@@ -2,8 +2,8 @@ package fr.diginamic.salaire;
 
 public class Pigiste extends Intervenant {
 
-    private int jourTravailMois;
-    private double remunerationJournaliere;
+    private final int jourTravailMois;
+    private final double remunerationJournaliere;
 
     public Pigiste(String nom, String prenom, int jourTravailMois, double remunerationJournaliere) {
         super(nom, prenom);
