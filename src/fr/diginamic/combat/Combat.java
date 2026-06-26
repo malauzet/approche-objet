@@ -2,6 +2,8 @@ package fr.diginamic.combat;
 
 public class Combat {
 
+    private static final double CHANCE_RECOMPENSE = 0.5; // 50% de drop actuellement
+
     private final Personnage personnage;
     private final Creature creature;
 
@@ -11,6 +13,8 @@ public class Combat {
     }
 
     public void lancerCombat() {
+
+        personnage.decrementerBonusAttaque();
 
         int compteur = 1;
 
@@ -28,13 +32,15 @@ public class Combat {
     }
 
     private void afficherDebutCombat() {
-        System.out.println("Début du combat contre : " + creature);
+        System.out.println("\n⚔️  Début du combat contre : " + creature);
+        if (personnage.getBonusAttaque() > 0) {
+            System.out.println("(Bonus d'attaque actif : +" + personnage.getBonusAttaque() + ")");
+        }
     }
 
     private void jouerTour() {
         int attaquePersonnage = personnage.calculerAttaque();
         int attaqueCreature = creature.calculerAttaque();
-
         int degats = calculerDegats(attaquePersonnage, attaqueCreature);
 
         System.out.println("Attaque Personnage : " + attaquePersonnage);
@@ -66,9 +72,34 @@ public class Combat {
         System.out.println("🏆 Victoire !! Vous battez le " + creature.getNom()
                 + " et gagnez " + creature.getPoints() + " points.");
         System.out.println("Score total : " + personnage.getScore() + " points.");
+        tenterRecompense();
     }
 
     private void gererDefaitePersonnage() {
         System.out.println("💀 Défaite... Vous finissez la partie avec " + personnage.getScore() + " points.");
+    }
+
+    private void tenterRecompense() {
+
+        double tirage = Math.random();
+
+        if (tirage > CHANCE_RECOMPENSE) {
+            System.out.println("Pas de récompense cette fois...");
+            return;
+        }
+
+        System.out.println("\n🎁 Vous avez obtenu une récompense !");
+
+        int choix = Utils.genererNombreAleatoire(1, 4);
+
+        switch (choix) {
+            case 1 -> personnage.ajouterPotion(new PotionSoin());
+            case 2 -> personnage.ajouterPotion(new PotionAttaqueMineure());
+            case 3 -> personnage.ajouterPotion(new PotionAttaqueMajeure());
+            case 4 -> {
+                personnage.ajouterScore(5);
+                System.out.println("Vous gagnez 5 points bonus ! Score : " + personnage.getScore());
+            }
+        }
     }
 }

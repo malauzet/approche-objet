@@ -3,6 +3,7 @@ package fr.diginamic.combat;
 import java.util.Scanner;
 
 public class Jeu {
+
     private static Personnage personnage = null;
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -10,7 +11,7 @@ public class Jeu {
 
         int choix = -1;
 
-        while (choix != 4) {
+        while (choix != 5) {
             afficherMenu();
             choix = lireChoix();
 
@@ -18,7 +19,8 @@ public class Jeu {
                 case 1 -> creerPersonnage();
                 case 2 -> combattre();
                 case 3 -> afficherScore();
-                case 4 -> System.out.println("Au revoir !");
+                case 4 -> prendrePotion();
+                case 5 -> System.out.println("Au revoir !");
                 default -> System.out.println("Option invalide, veuillez réessayer.");
             }
         }
@@ -31,7 +33,8 @@ public class Jeu {
         System.out.println("1. Créer le personnage");
         System.out.println("2. Combattre une créature");
         System.out.println("3. Afficher le score");
-        System.out.println("4. Sortir");
+        System.out.println("4. Prendre une potion");
+        System.out.println("5. Sortir");
         System.out.println("==========================");
         System.out.print("Votre choix : ");
     }
@@ -45,14 +48,19 @@ public class Jeu {
     }
 
     private static void creerPersonnage() {
+
         personnage = new Personnage();
+
         System.out.println("Personnage créé avec succès !");
-        System.out.println("Force : " + personnage.getForce());
-        System.out.println("Points de vie : " + personnage.getPointsDeVie());
-        System.out.println("Score : " + personnage.getScore());
+        System.out.println("Force           : " + personnage.getForce());
+        System.out.println("Points de vie   : " + personnage.getPointsDeVie());
+        System.out.println("Score           : " + personnage.getScore());
+
+        personnage.afficherInventaire();
     }
 
     private static void combattre() {
+
         if (personnage == null) {
             System.out.println("Veuillez d'abord créer un personnage (option 1).");
             return;
@@ -84,5 +92,28 @@ public class Jeu {
             return;
         }
         System.out.println("Score actuel : " + personnage.getScore() + " points.");
+        System.out.println("PV restants  : " + personnage.getPointsDeVie());
+    }
+
+    private static void prendrePotion() {
+
+        if (personnage == null) {
+            System.out.println("Veuillez d'abord créer un personnage (option 1).");
+            return;
+        }
+        if (!personnage.aDesPotion()) {
+            System.out.println("Vous n'avez aucune potion dans votre inventaire.");
+            return;
+        }
+
+        personnage.afficherInventaire();
+        System.out.print("Choisissez une potion (numéro) : ");
+
+        int choix = lireChoix();
+        boolean succes = personnage.utiliserPotion(choix - 1);
+
+        if (!succes) {
+            System.out.println("Numéro invalide.");
+        }
     }
 }

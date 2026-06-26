@@ -18,6 +18,10 @@ public abstract class Entites {
         return pointsDeVie;
     }
 
+    protected void setPointsDeVie(int pointsDeVie) {
+        this.pointsDeVie = pointsDeVie;
+    }
+
     public int calculerAttaque() {
         return force + Utils.genererNombreAleatoire(1, 10);
     }
