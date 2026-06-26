@@ -5,6 +5,8 @@ import fr.diginamic.maison.*;
 public class TestMaison {
     static void main() {
 
+        System.out.println("—————————————————————————————————————————— Test Maison ——————————————————————————————————————————");
+
         Maison maison = new Maison();
 
         maison.ajouterPiece(new Salon(30, 0));
@@ -33,6 +35,26 @@ public class TestMaison {
 
         System.out.println("Superficie totale des WCs de la maison : " + maison.getSuperficieParType("wc"));
         System.out.println("Nombre de chambre dans la maison : " + maison.getNbPiecesParType("chambre"));
+
+        System.out.println("————————————————————————————————————————— Test MaisonV2 —————————————————————————————————————————");
+
+        MaisonV2 maisonV2 = new MaisonV2();
+
+        maisonV2.ajouterPiece(new Salon(30, 0));
+        maisonV2.ajouterPiece(new Cuisine(12, 0));
+        maisonV2.ajouterPiece(new WC(3, 0));
+        maisonV2.ajouterPiece(new Chambre(15, 1));
+        maisonV2.ajouterPiece(new SalleDeBain(9, 1));
+        maisonV2.ajouterPiece(new WC(3, 1));
+        maisonV2.ajouterPiece(null);
+
+        System.out.println("Superficie totale de la maisonV2 : " + maisonV2.getSuperficieTotale());
+        System.out.println("Superficie du rez-de-chaussé : " + maisonV2.getSuperficieParEtage(0));
+        System.out.println("Superficie du premier étage : " + maisonV2.getSuperficieParEtage(1));
+        System.out.println("Superficie de l'étage -1 : " + maisonV2.getSuperficieParEtage(-1));
+
+        System.out.println("Superficie totale des WCs de la maisonV2 : " + maisonV2.getSuperficieParType("wc"));
+        System.out.println("Nombre de chambre dans la maisonV2 : " + maisonV2.getNbPiecesParType("chambre"));
 
     }
 }
