@@ -66,8 +66,6 @@ public class Personnage extends Entites {
 
     // Inventaire -----------------------------------------------------------------------------------
     public void ajouterPotion(Potion potion) {
-        inventaire.add(potion);
-        System.out.println(potion.getNom() + " a été ajoutée à l'inventaire.");
 
         boolean dejaPresente = inventaire.stream()
                 .anyMatch(p -> p.getClass().equals(potion.getClass()));

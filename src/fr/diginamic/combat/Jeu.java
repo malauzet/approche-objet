@@ -6,6 +6,7 @@ public class Jeu {
 
     private static Personnage personnage = null;
     private static final Scanner scanner = new Scanner(System.in);
+    private static boolean potionUtiliseeCeTour = false;
 
     static void main() {
 
@@ -72,6 +73,7 @@ public class Jeu {
             return;
         }
 
+        potionUtiliseeCeTour = false;
         Creature creature = genererCreatureAleatoire();
         Combat combat = new Combat(personnage, creature);
         combat.lancerCombat();
@@ -105,6 +107,10 @@ public class Jeu {
             System.out.println("Vous n'avez aucune potion dans votre inventaire.");
             return;
         }
+        if (potionUtiliseeCeTour) {
+            System.out.println("Vous avez déjà utilisé une potion ce tour.");
+            return;
+        }
 
         personnage.afficherInventaire();
         System.out.print("Choisissez une potion (numéro) : ");
@@ -114,6 +120,9 @@ public class Jeu {
 
         if (!succes) {
             System.out.println("Numéro invalide.");
+        }
+        else {
+            potionUtiliseeCeTour = true;
         }
     }
 }
