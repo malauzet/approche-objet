@@ -2,8 +2,8 @@ package fr.diginamic.entites;
 
 public class Theatre {
 
-    private String nom;
-    private int capaciteMax;
+    private final String nom;
+    private final int capaciteMax;
     private int clientsInscrits;
     private double recette;
 
@@ -24,10 +24,16 @@ public class Theatre {
         return recette;
     }
 
+    public String getNom() {return nom;}
+
     // Méthodes ----------------------------------------------------------------------------------
     public void inscrire(int nbClients, double prixPlace) {
 
-        if (clientsInscrits + nbClients <= capaciteMax) {
+        if (clientsInscrits == capaciteMax) {
+            System.out.println("Erreur : La capacité maximale du théâtre (" + capaciteMax + " personnes) est atteinte.");
+            System.out.println();
+        }
+        else if (clientsInscrits + nbClients <= capaciteMax) {
             clientsInscrits += nbClients;
             recette += nbClients * prixPlace;
 
@@ -35,8 +41,9 @@ public class Theatre {
             System.out.println("Total clients : " + clientsInscrits);
             System.out.println("Recette totale : " + recette + " €");
             System.out.println();
-        } else {
-            System.out.println("Erreur : capacité maximale du théâtre atteinte ou dépassée.");
+        }
+        else {
+            System.out.println("Erreur : Impossible d'ajouter " + nbClients + " personne(s), seulement " + (capaciteMax - clientsInscrits) + " place(s) restante(s).");
             System.out.println();
         }
     }
