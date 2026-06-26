@@ -26,6 +26,10 @@ public class GestionCombat {
             System.out.println("Veuillez d'abord créer un personnage (option 1).");
             return;
         }
+        if (!personnage.estVivant()) {
+            System.out.println("Votre personnage est mort.");
+            return;
+        }
         if (!personnage.aDesPotion()) {
             System.out.println("Vous n'avez aucune potion dans votre inventaire.");
             return;
