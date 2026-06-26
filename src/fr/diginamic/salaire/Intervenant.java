@@ -15,9 +15,9 @@ public abstract class Intervenant {
     public abstract String getStatut();
 
     public void afficherDonnees() {
-        System.out.println("Nom : " + nom);
-        System.out.println("Prénom : " + prenom);
-        System.out.println("Salaire : " + getSalaire());
-        System.out.println("Statut : " + getStatut());
+        System.out.println("Nom             : " + nom);
+        System.out.println("Prénom          : " + prenom);
+        System.out.println("Salaire mensuel : " + getSalaire() + " €");
+        System.out.println("Statut          : " + getStatut());
     }
 }
